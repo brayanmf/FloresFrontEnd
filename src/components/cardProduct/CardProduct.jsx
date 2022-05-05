@@ -1,5 +1,6 @@
 import React from "react";
 import ReactStars from "react-rating-stars-component";
+import {Link} from "react-router-dom";
 
 const optionsStart = {
 	color: "rgba(20,20,20,0.1)",
@@ -11,27 +12,31 @@ const optionsStart = {
 };
 const CardProduct = ({product}) => {
 	return (
-		<div className="card h-96  bg-base-100 shadow-xl">
-			<figure style={{width: "100%"}}>
+		<div className="card h-full  bg-base-100 shadow-xl">
+			<figure className="h-3/5">
 				<img
-					className="object-cover"
-					src={product.image.url[0]}
+					className="object-cover  h-full w-full"
+					src={product.images.url[0]}
 					alt={product.name}
 				/>
 			</figure>
 			<div className="card-body">
 				<h2 className="card-title">
 					{product.name}
-					<div className="badge badge-secondary">NEW</div>
+					<div className="badge badge-secondary">Destacado</div>
 				</h2>
 				<p>s/{product.price}</p>
 				<div>
 					<ReactStars {...optionsStart} />
+					<span>{product.numOfReviews} Reseñas</span>
 				</div>
 				<div className="card-actions justify-end">
-					<button type="button" className="btn btn-primary btn-sm">
+					<Link
+						to={`product/${product._id}`}
+						className="btn btn-primary btn-sm"
+					>
 						Buy Now
-					</button>
+					</Link>
 				</div>
 			</div>
 		</div>

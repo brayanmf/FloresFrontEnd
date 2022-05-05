@@ -30,5 +30,10 @@ module.exports = {
 		"jsx-a11y/no-noninteractive-tabindex": "off",
 		"react/jsx-props-no-spreading": "off",
 		"import/no-unresolved": "off",
+		"no-param-reassign": "off",
+		"import/prefer-default-export": "off",
+		"import/no-named-as-default": "off",
+		"no-underscore-dangle": "off",
+		"react/jsx-boolean-value": "off",
 	},
 };

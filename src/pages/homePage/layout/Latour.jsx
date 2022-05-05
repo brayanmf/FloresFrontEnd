@@ -3,7 +3,7 @@ import React from "react";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
 
-const Main = () => {
+const Layout = () => {
 	return (
 		<>
 			<Header />
@@ -13,4 +13,4 @@ const Main = () => {
 	);
 };
 
-export default Main;
+export default Layout;

@@ -1,9 +1,14 @@
-import {createStore, applyMiddleware} from "redux";
-import {composeWithDevTools} from "redux-devtools-extension";
-import thunk from "redux-thunk";
-import reducer from "./reducers";
+import {configureStore} from "@reduxjs/toolkit";
+import productDetailReducer from "./productDetailReducer/productDetail.reducer";
+import productReducer from "./productReducer/product.reducer";
 
-export default createStore(
-	reducer,
-	composeWithDevTools(applyMiddleware(thunk))
-);
+export const store = configureStore({
+	reducer: {
+		product: productReducer,
+		productDetail: productDetailReducer,
+	},
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}),
+});
