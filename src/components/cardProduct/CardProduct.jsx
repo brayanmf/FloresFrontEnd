@@ -16,7 +16,7 @@ const CardProduct = ({product}) => {
 			<figure className="h-3/5">
 				<img
 					className="object-cover  h-full w-full"
-					src={product.images.url[0]}
+					src={product.images[0].url}
 					alt={product.name}
 				/>
 			</figure>

@@ -50,10 +50,10 @@ const SliderCard = () => {
 				initialSlide={1}
 				pagination={true}
 				modules={[Autoplay, EffectCoverflow, Pagination]}
-				className="mySwiper"
+				className="mySwiper2"
 			>
 				{products.map((el) => (
-					<SwiperSlide>
+					<SwiperSlide className="mySwiper2-card">
 						<CardProduct product={el} />
 					</SwiperSlide>
 				))}

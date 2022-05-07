@@ -20,9 +20,9 @@ const svgContent = {
 	viewBox: "0 0 24 24",
 	className: "stroke-current flex-shrink-0 w-6 h-6",
 };
-const Alert = ({type, message}) => {
+const Alert = ({type, message, styleAlert}) => {
 	return (
-		<div className={`alert ${type} shadow-lg `}>
+		<div className={`alert ${type} shadow-lg ${styleAlert}`}>
 			<div>
 				{type === "alert-success" ? (
 					<svg {...svgContent}>

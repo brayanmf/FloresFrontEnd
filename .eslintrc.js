@@ -35,5 +35,6 @@ module.exports = {
 		"import/no-named-as-default": "off",
 		"no-underscore-dangle": "off",
 		"react/jsx-boolean-value": "off",
+		"no-unused-vars": "off",
 	},
 };
