@@ -23,7 +23,7 @@ const SliderCard = () => {
 				setBolErr(false);
 			}, 1500);
 		}
-		dispatch(getProducts());
+		dispatch(getProducts({}));
 	}, [dispatch, error, setBolErr]);
 
 	return loading ? (
@@ -54,7 +54,7 @@ const SliderCard = () => {
 			>
 				{products.map((el) => (
 					<SwiperSlide className="mySwiper2-card">
-						<CardProduct product={el} />
+						<CardProduct key={el._id} product={el} />
 					</SwiperSlide>
 				))}
 			</Swiper>

@@ -6,7 +6,7 @@ import {getProductDetail} from "../../store/productDetailReducer/productDetail.a
 import ProductSlide from "./components/productSlide/ProductSlide";
 import ReviewsCard from "./components/reviewsCard/ReviewsCard";
 import Loader from "../../components/loader/Loader";
-import {clearErrors} from "../../store/productDetailReducer/productDetail.reducer";
+import {clearErrorAction} from "../../store/productDetailReducer/productDetail.reducer";
 import Alert from "../../components/alert/Alert";
 
 const ProductDetais = () => {
@@ -22,7 +22,7 @@ const ProductDetais = () => {
 			setBolError(true);
 			setInterval(() => {
 				setBolError(false);
-				dispatch(clearErrors);
+				dispatch(clearErrorAction);
 			}, 2500);
 		}
 		dispatch(getProductDetail(params.id));
@@ -34,7 +34,7 @@ const ProductDetais = () => {
 			{bolError && (
 				<Alert
 					type="alert-error"
-					styleAlert=" absolute z-10"
+					styleAlert="absolute inset-1/2"
 					message={error}
 				/>
 			)}

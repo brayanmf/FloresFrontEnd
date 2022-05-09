@@ -9,7 +9,11 @@ const initialState = {
 export const productReducer = createSlice({
 	name: "product",
 	initialState,
-	reducers: {},
+	reducers: {
+		clearErrorAction: (state) => {
+			state.error = null;
+		},
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(getProducts.pending, (state) => {
@@ -20,6 +24,8 @@ export const productReducer = createSlice({
 				state.loading = false;
 				state.products = action.payload.products;
 				state.productsCount = action.payload.productsCount;
+				state.resultPerPage = action.payload.resultPerPage;
+				state.filteredProductsCount = action.payload.filteredProductsCount;
 			})
 			.addCase(getProducts.rejected, (state, action) => {
 				state.loading = false;
@@ -27,5 +33,5 @@ export const productReducer = createSlice({
 			});
 	},
 });
-
+export const {clearErrorAction} = productReducer.actions;
 export default productReducer.reducer;

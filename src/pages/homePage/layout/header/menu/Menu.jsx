@@ -27,13 +27,13 @@ const Menu = () => {
 					<a href="/">Inicio</a>
 				</li>
 				<li>
-					<a href="/">Productos</a>
+					<a href="/products">Productos</a>
 				</li>
 				<li>
 					<a href="/">Contacto</a>
 				</li>
 				<li>
-					<a href="/">Acerca de</a>
+					<a href="/about">Acerca de</a>
 				</li>
 			</ul>
 		</div>

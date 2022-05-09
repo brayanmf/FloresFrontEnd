@@ -1,21 +1,24 @@
 import React from "react";
 import ReactStars from "react-rating-stars-component";
 import {Link} from "react-router-dom";
+import "./CardProduct.css";
 
-const optionsStart = {
-	color: "rgba(20,20,20,0.1)",
-	edit: false,
-	activeColor: "tomato",
-	size: window.innerWidth > 768 ? 20 : 15,
-	value: 2.5,
-	isHalf: true,
-};
-const CardProduct = ({product}) => {
+const CardProduct = ({product, classCard}) => {
+	const optionsStart = {
+		color: "rgba(8, 8, 8, 0.83)",
+		edit: false,
+		activeColor: "tomato",
+		size: window.innerWidth > 768 ? 20 : 15,
+		value: product.rating,
+		isHalf: true,
+	};
 	return (
-		<div className="card h-full  bg-base-100 shadow-xl">
-			<figure className="h-3/5">
+		<div
+			className={`card card-normal h-full  bg-base-100 shadow-xl ${classCard}`}
+		>
+			<figure className="h-3/5 ">
 				<img
-					className="object-cover  h-full w-full"
+					className="object-fill h-full w-full"
 					src={product.images[0].url}
 					alt={product.name}
 				/>
@@ -32,10 +35,10 @@ const CardProduct = ({product}) => {
 				</div>
 				<div className="card-actions justify-end">
 					<Link
-						to={`product/${product._id}`}
+						to={`/product/${product._id}`}
 						className="btn btn-primary btn-sm"
 					>
-						Buy Now
+						Comprar
 					</Link>
 				</div>
 			</div>

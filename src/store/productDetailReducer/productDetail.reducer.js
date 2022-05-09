@@ -10,7 +10,7 @@ export const productDetailReducer = createSlice({
 	name: "productDetail",
 	initialState,
 	reducers: {
-		clearErrors: (state) => {
+		clearErrorAction: (state) => {
 			state.error = null;
 		},
 	},
@@ -31,6 +31,6 @@ export const productDetailReducer = createSlice({
 	},
 });
 
-export const {clearErrors} = productDetailReducer.actions;
+export const {clearErrorAction} = productDetailReducer.actions;
 
 export default productDetailReducer.reducer;
