@@ -42,7 +42,7 @@ const Products = () => {
 			setInterval(() => {
 				setBolError(false);
 				dispatch(clearErrorAction);
-			}, 100500);
+			}, 10500);
 		}
 
 		dispatch(

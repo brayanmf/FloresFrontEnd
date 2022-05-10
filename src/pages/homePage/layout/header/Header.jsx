@@ -17,7 +17,10 @@ const Header = () => {
 			<div className="navbar-end">
 				<Search />
 				<Cart />
-				<Profile />
+				<button type="button" className="btn btn-sm">
+					Login
+				</button>
+				{/*		<Profile /> */}
 			</div>
 		</div>
 	);
