@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Menu = () => {
 	return (
@@ -24,16 +25,16 @@ const Menu = () => {
 				className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 			>
 				<li>
-					<a href="/">Inicio</a>
+					<Link to="/">Inicio</Link>
 				</li>
 				<li>
-					<a href="/products">Productos</a>
+					<Link to="/products">Productos</Link>
 				</li>
 				<li>
-					<a href="/">Contacto</a>
+					<Link to="/contact">Contacto</Link>
 				</li>
 				<li>
-					<a href="/about">Acerca de</a>
+					<Link to="/about">Acerca de</Link>
 				</li>
 			</ul>
 		</div>

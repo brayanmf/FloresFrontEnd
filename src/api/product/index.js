@@ -24,5 +24,4 @@ export const getProductAsync = (data) => {
 	}
 	return api.get(link);
 };
-export const getProductIdAsync = (id) =>
-	api.get(url.concat(`/product/${id}`));
+export const getProductIdAsync = (id) => api.get(`${url}/product/${id}`);

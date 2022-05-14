@@ -39,10 +39,10 @@ const Products = () => {
 	useEffect(() => {
 		if (error) {
 			setBolError(true);
-			setInterval(() => {
+			setTimeout(() => {
 				setBolError(false);
 				dispatch(clearErrorAction);
-			}, 10500);
+			}, 2500);
 		}
 
 		dispatch(
@@ -55,7 +55,16 @@ const Products = () => {
 				rating,
 			})
 		);
-	}, [dispatch, keyword, currentPage, minVal, maxVal, category, rating]);
+	}, [
+		dispatch,
+		keyword,
+		error,
+		currentPage,
+		minVal,
+		maxVal,
+		category,
+		rating,
+	]);
 
 	return (
 		<div className=" card  mx-14 my-16 p-6 bg-base-300 rounded-box   min-h-screen content_body">

@@ -1,0 +1,14 @@
+
+
+@media screen and (max-width: 768px){
+    .content-profile{
+        flex-direction: column;
+    }
+    .item-start{
+        align-items: center;
+        
+    }
+    .item-start>div{
+        text-align: center;
+    }
+}

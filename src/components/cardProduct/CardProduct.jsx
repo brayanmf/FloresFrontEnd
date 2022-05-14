@@ -23,7 +23,7 @@ const CardProduct = ({product, classCard}) => {
 					alt={product.name}
 				/>
 			</figure>
-			<div className="card-body">
+			<div className="card-body ">
 				<h2 className="card-title">
 					{product.name}
 					<div className="badge badge-secondary">Destacado</div>
@@ -33,7 +33,7 @@ const CardProduct = ({product, classCard}) => {
 					<ReactStars {...optionsStart} />
 					<span>{product.numOfReviews} Reseñas</span>
 				</div>
-				<div className="card-actions justify-end">
+				<div className="card-actions justify-end ">
 					<Link
 						to={`/product/${product._id}`}
 						className="btn btn-primary btn-sm"

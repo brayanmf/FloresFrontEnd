@@ -19,7 +19,7 @@ const SliderCard = () => {
 	useEffect(() => {
 		if (error) {
 			setBolErr(true);
-			setInterval(() => {
+			setTimeout(() => {
 				setBolErr(false);
 			}, 1500);
 		}

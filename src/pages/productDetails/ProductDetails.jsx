@@ -20,7 +20,7 @@ const ProductDetais = () => {
 	useEffect(() => {
 		if (error) {
 			setBolError(true);
-			setInterval(() => {
+			setTimeout(() => {
 				setBolError(false);
 				dispatch(clearErrorAction);
 			}, 2500);

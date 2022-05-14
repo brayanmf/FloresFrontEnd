@@ -1,14 +1,21 @@
 import React from "react";
+import {Link, useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {logout} from "../../../../../store/authReducer/authReducer.action";
 
-const Profile = () => {
+const Profile = ({user}) => {
+	// const navigate = useNavigate();
+
+	const dispatch = useDispatch();
+	const handleClick = () => {
+		dispatch(logout());
+	};
+
 	return (
-		<div className="dropdown dropdown-end">
+		<div className="dropdown dropdown-end ">
 			<label tabIndex="0" className="btn btn-ghost btn-circle avatar">
 				<div className="w-10 rounded-full">
-					<img
-						src="https://api.lorem.space/image/face?hash=33791"
-						alt="avatar"
-					/>
+					<img src={user.avatar.url} alt="avatar" />
 				</div>
 			</label>
 			<ul
@@ -16,16 +23,24 @@ const Profile = () => {
 				className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 			>
 				<li>
-					<a href="/" className="justify-between">
-						Profile
+					<Link to="/profile" className="justify-between">
+						Perfil
 						<span className="badge">New</span>
-					</a>
+					</Link>
 				</li>
+				{user.role === "admin" && (
+					<li>
+						<Link to="/dashboard">Panel</Link>
+					</li>
+				)}
 				<li>
-					<a href="/">Settings</a>
+					<Link to="/orders">Ordenes</Link>
 				</li>
+
 				<li>
-					<a href="/">Logout</a>
+					<button type="button" onClick={handleClick}>
+						Salir
+					</button>
 				</li>
 			</ul>
 		</div>
