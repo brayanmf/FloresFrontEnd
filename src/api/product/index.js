@@ -16,12 +16,13 @@ export const getProductAsync = (data) => {
 	} = data;
 	let link;
 	if (category === "Todos") {
-		link = `${url}/product/all?keyword=${keyword}&page=${currentPage}&price[gte]=${min}&price[lte]=${max}&rating[gte]=${rating}`;
+		link = `${url}/api/v1/product/all?keyword=${keyword}&page=${currentPage}&price[gte]=${min}&price[lte]=${max}&rating[gte]=${rating}`;
 	}
 
 	if (category && category !== "Todos") {
-		link = `${url}/product/all?keyword=${keyword}&page=${currentPage}&price[gte]=${min}&price[lte]=${max}&category=${category}&rating[gte]=${rating}`;
+		link = `${url}/api/v1/product/all?keyword=${keyword}&page=${currentPage}&price[gte]=${min}&price[lte]=${max}&category=${category}&rating[gte]=${rating}`;
 	}
 	return api.get(link);
 };
-export const getProductIdAsync = (id) => api.get(`${url}/product/${id}`);
+export const getProductIdAsync = (id) =>
+	api.get(`${url}/api/v1/product/${id}`);

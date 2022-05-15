@@ -7,7 +7,7 @@ import {
 	clearErrorAction,
 	profileReset,
 } from "../../store/profileReducer/profileReducer.reducer";
-import {putUpdate} from "../../store/profileReducer/profileReducer.action";
+import {updateProfile} from "../../store/profileReducer/profileReducer.action";
 import {loadUser} from "../../store/authReducer/authReducer.action";
 
 const UpdateProfile = () => {
@@ -27,7 +27,7 @@ const UpdateProfile = () => {
 		myForm.set("name", name);
 		myForm.set("email", email);
 		myForm.set("avatar", avatar);
-		dispatch(putUpdate(myForm));
+		dispatch(updateProfile(myForm));
 	};
 	const updateDataChange = (e) => {
 		const reader = new FileReader();
@@ -81,7 +81,6 @@ const UpdateProfile = () => {
 							</label>
 							<input
 								type="text"
-								placeholder="ingrese su Nombre"
 								className="input input-bordered"
 								name="name"
 								value={name}
@@ -90,11 +89,10 @@ const UpdateProfile = () => {
 						</div>
 						<div className="form-control">
 							<label className="label">
-								<span className="label-text font-bold">Email</span>
+								<span className="label-text font-bold">Correo</span>
 							</label>
 							<input
 								type="email"
-								placeholder="ingrese su Correo"
 								className="input input-bordered"
 								name="email"
 								value={email}
@@ -120,7 +118,7 @@ const UpdateProfile = () => {
 						</div>
 						<div className="form-control mt-6">
 							<button type="submit" className="btn btn-primary">
-								Registrar
+								Actualizar
 							</button>
 						</div>
 					</form>

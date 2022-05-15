@@ -1,9 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {putUpdate} from "./profileReducer.action";
+import {updateProfile, updatePassword} from "./profileReducer.action";
 
 const initialState = {
 	error: null,
 	isUpdate: false,
+	isUpdatePassword: false,
 };
 
 export const profileReducer = createSlice({
@@ -16,21 +17,38 @@ export const profileReducer = createSlice({
 		profileReset: (state) => {
 			state.isUpdate = false;
 		},
+		passwordReset: (state) => {
+			state.isUpdatePassword = false;
+		},
 	},
 	extraReducers: (builder) => {
 		builder
-			.addCase(putUpdate.pending, (state) => {
+			.addCase(updateProfile.pending, (state) => {
 				state.loading = true;
 			})
-			.addCase(putUpdate.fulfilled, (state, action) => {
+			.addCase(updateProfile.fulfilled, (state, action) => {
 				state.loading = false;
-				state.isUpdate = action.payload;
+				state.isUpdate = action.payload.sucess;
 			})
-			.addCase(putUpdate.rejected, (state, action) => {
+			.addCase(updateProfile.rejected, (state, action) => {
 				state.loading = false;
+				state.error = action.error.message;
+			});
+		builder
+			.addCase(updatePassword.pending, (state) => {
+				state.loading = true;
+			})
+			.addCase(updatePassword.fulfilled, (state, action) => {
+				state.loading = false;
+				state.isUpdatePassword = action.payload.sucess;
+			})
+			.addCase(updatePassword.rejected, (state, action) => {
+				state.loading = false;
+
 				state.error = action.error.message;
 			});
 	},
 });
-export const {clearErrorAction, profileReset} = profileReducer.actions;
+export const {clearErrorAction, profileReset, passwordReset} =
+	profileReducer.actions;
 export default profileReducer.reducer;

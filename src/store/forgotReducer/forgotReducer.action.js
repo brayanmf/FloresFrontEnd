@@ -1,11 +1,11 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {updateAsync, updatePasswordAsync} from "../../api/profile";
+import {forgotAsync, resetAsync} from "../../api/forgot";
 
-export const updateProfile = createAsyncThunk(
-	"profile/update",
+export const forgotPassword = createAsyncThunk(
+	"forgot/update",
 	async (dataParams) => {
 		try {
-			const {data} = await updateAsync(dataParams);
+			const {data} = await forgotAsync(dataParams);
 			return data;
 		} catch (err) {
 			const errorData = err.response.data
@@ -16,11 +16,12 @@ export const updateProfile = createAsyncThunk(
 		}
 	}
 );
-export const updatePassword = createAsyncThunk(
-	"profile/updatePassword",
+
+export const resetPassword = createAsyncThunk(
+	"forgot/reset",
 	async (dataParams) => {
 		try {
-			const {data} = await updatePasswordAsync(dataParams);
+			const {data} = await resetAsync(dataParams);
 			return data;
 		} catch (err) {
 			const errorData = err.response.data

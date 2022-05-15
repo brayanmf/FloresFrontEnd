@@ -58,6 +58,7 @@ const Register = () => {
 	return (
 		<div className="card-body w-96 drop-shadow-lg">
 			<h2 className="font-bold text-center p-5">Registrate</h2>
+
 			{bolErr && (
 				<Alert
 					type="alert-error"
@@ -108,6 +109,8 @@ const Register = () => {
 							onChange={registerDataChange}
 						/>
 					</div>
+
+					<div className="divider p-5" />
 					<div className="form-control">
 						<label className="label">
 							<span className="label-text font-bold">Perfil</span>

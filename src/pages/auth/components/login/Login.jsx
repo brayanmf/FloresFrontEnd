@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import Loader from "../../../../components/loader/Loader";
 import {clearErrorAction} from "../../../../store/authReducer/authReducer.reducer";
@@ -8,7 +8,7 @@ import Alert from "../../../../components/alert/Alert";
 
 const Login = () => {
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
+
 	const {error, loading} = useSelector((state) => state.auth);
 	const [user, setUser] = useState({
 		email: "",
@@ -72,7 +72,10 @@ const Login = () => {
 							onChange={loginDataChange}
 						/>
 						<label className="label">
-							<Link to="/" className="label-text-alt link link-hover">
+							<Link
+								to="/forgot/password"
+								className="label-text-alt link link-hover"
+							>
 								Se te olvidó tu contraseña?
 							</Link>
 						</label>

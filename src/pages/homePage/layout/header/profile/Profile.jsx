@@ -4,11 +4,12 @@ import {useDispatch} from "react-redux";
 import {logout} from "../../../../../store/authReducer/authReducer.action";
 
 const Profile = ({user}) => {
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const dispatch = useDispatch();
 	const handleClick = () => {
 		dispatch(logout());
+		navigate("/");
 	};
 
 	return (

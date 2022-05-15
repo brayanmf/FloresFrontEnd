@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from "react";
 
 import {Swiper, SwiperSlide} from "swiper/react";
@@ -25,7 +26,7 @@ const ProductSlide = ({product}) => {
 		>
 			{product.images &&
 				product.images.map((item, index) => (
-					<SwiperSlide key={item.url}>
+					<SwiperSlide key={index + 1}>
 						<img src={item.url} alt={`${index} Slide`} />
 					</SwiperSlide>
 				))}

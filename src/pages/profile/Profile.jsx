@@ -11,9 +11,9 @@ const Profile = () => {
 	) : (
 		<div className="flex h-screen w-screen  max-w-full bg-gradient-to-t from-violet-900 content-profile">
 			<div className="flex flex-col w-screen h-screen max-w-full justify-center items-center  ">
-				<h2 className="text-6xl p-5">Perfil</h2>
+				<h2 className="text-5xl p-5">Perfil</h2>
 				<div className="avatar ">
-					<div className="w-2/4 mx-auto mask mask-hexagon rounded-full   transition hover:scale-105">
+					<div className="w-52 mx-auto mask mask-hexagon rounded-full   transition hover:scale-105">
 						<img alt="profile" src={user.avatar.url} />
 					</div>
 				</div>

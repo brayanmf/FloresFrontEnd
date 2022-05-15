@@ -1,8 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactStars from "react-rating-stars-component";
 import "./CardDetail.css";
 
 const CardDetail = ({product}) => {
+	const [quantity, setQuantity] = useState(1);
+	const increaseQuantity = () => {
+		if (product.Stock <= quantity) return;
+		const aux = quantity + 1;
+		setQuantity(aux);
+	};
+	const decreaseQuantity = () => {
+		if (quantity <= 1) return;
+		const aux = quantity - 1;
+		setQuantity(aux);
+	};
+
 	const optionsStart = {
 		color: "rgba(8, 8, 8, 0.83)",
 		edit: false,
@@ -26,14 +38,24 @@ const CardDetail = ({product}) => {
 				<h2 className="text-2xl p-4">S/{product.price}</h2>
 				<div className="flex  content-center p-4">
 					<div>
-						<button type="button" className="btn btn-secondary ">
+						<button
+							type="button"
+							className="btn btn-secondary "
+							onClick={decreaseQuantity}
+						>
 							-
 						</button>
 						<input
-							className="  text-center h-12 rounded-md w-10 text-black outline-none"
-							value={1}
+							readOnly
+							type="number"
+							className="  text-center h-11 rounded-md w-10 text-black outline-none"
+							value={quantity}
 						/>
-						<button type="button" className="btn btn-secondary ">
+						<button
+							type="button"
+							className="btn btn-secondary"
+							onClick={increaseQuantity}
+						>
 							+
 						</button>
 					</div>

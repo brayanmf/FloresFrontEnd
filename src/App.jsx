@@ -18,6 +18,9 @@ import Profile from "./pages/profile/Profile";
 import NotFound from "./pages/notFound/NotFound";
 import ProtectRoute from "./components/protectRoute/ProtectRoute";
 import UpdateProfile from "./pages/updateProfile/UpdateProfile";
+import UpdatePassword from "./pages/updatePassword/UpdatePassword";
+import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
+import ResetPassword from "./pages/resetPassword/ResetPassword";
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -36,6 +39,8 @@ const App = () => {
 					<Route path="/contact" element={<Contact />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/product/:id" element={<ProductDetais />} />
+					<Route path="forgot/password" element={<ForgotPassword />} />
+					<Route path="/reset/password/:id" element={<ResetPassword />} />
 					<Route
 						path="/profile"
 						element={<ProtectRoute component={Profile} />}
@@ -43,6 +48,10 @@ const App = () => {
 					<Route
 						path="/me/update"
 						element={<ProtectRoute component={UpdateProfile} />}
+					/>
+					<Route
+						path="/password/update"
+						element={<ProtectRoute component={UpdatePassword} />}
 					/>
 				</Route>
 
