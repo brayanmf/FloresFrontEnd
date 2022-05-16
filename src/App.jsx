@@ -21,6 +21,7 @@ import UpdateProfile from "./pages/updateProfile/UpdateProfile";
 import UpdatePassword from "./pages/updatePassword/UpdatePassword";
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
+import Cart from "./pages/cart/Cart";
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -53,6 +54,7 @@ const App = () => {
 						path="/password/update"
 						element={<ProtectRoute component={UpdatePassword} />}
 					/>
+					<Route path="/cart" element={<Cart />} />
 				</Route>
 
 				<Route path="/auth/" element={<Auth />}>

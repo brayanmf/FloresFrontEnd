@@ -1,9 +1,15 @@
 import React, {useState} from "react";
 import ReactStars from "react-rating-stars-component";
+import {useDispatch} from "react-redux";
+
 import "./CardDetail.css";
+import {useParams} from "react-router-dom";
+import {addCart} from "../../../../store/cartReducer/cartReducer.action";
 
 const CardDetail = ({product}) => {
+	const params = useParams();
 	const [quantity, setQuantity] = useState(1);
+	const dispatch = useDispatch();
 	const increaseQuantity = () => {
 		if (product.Stock <= quantity) return;
 		const aux = quantity + 1;
@@ -15,6 +21,10 @@ const CardDetail = ({product}) => {
 		setQuantity(aux);
 	};
 
+	const handleAdddCart = () => {
+		const {id} = params;
+		dispatch(addCart({id, quantity}));
+	};
 	const optionsStart = {
 		color: "rgba(8, 8, 8, 0.83)",
 		edit: false,
@@ -36,30 +46,34 @@ const CardDetail = ({product}) => {
 			</div>
 			<div className="cardDetail-cart p-4">
 				<h2 className="text-2xl p-4">S/{product.price}</h2>
-				<div className="flex  content-center p-4">
+				<div className="flex items-center p-4">
 					<div>
 						<button
 							type="button"
-							className="btn btn-secondary "
+							className="btn btn-primary  sm:btn-sm "
 							onClick={decreaseQuantity}
 						>
 							-
 						</button>
 						<input
 							readOnly
-							type="number"
-							className="  text-center h-11 rounded-md w-10 text-black outline-none"
+							type="text"
+							className="  text-center h-7 rounded-md w-10 text-black outline-none"
 							value={quantity}
 						/>
 						<button
 							type="button"
-							className="btn btn-secondary"
+							className="btn btn-primary sm:btn-sm  "
 							onClick={increaseQuantity}
 						>
 							+
 						</button>
 					</div>
-					<button type="button" className="btn btn-primary ml-4">
+					<button
+						type="button"
+						className="btn btn-secondary ml-4"
+						onClick={handleAdddCart}
+					>
 						Agregar al Carrito
 					</button>
 				</div>

@@ -26,8 +26,10 @@ const Profile = ({user}) => {
 				<li>
 					<Link to="/profile" className="justify-between">
 						Perfil
-						<span className="badge">New</span>
 					</Link>
+				</li>
+				<li>
+					<Link to="/cart">Carrito</Link>
 				</li>
 				{user.role === "admin" && (
 					<li>
