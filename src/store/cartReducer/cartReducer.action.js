@@ -7,7 +7,16 @@ export const addCart = createAsyncThunk(
 		try {
 			const {id, quantity} = dataParams;
 			const {data} = await getProductIdAsync(id);
-			const item = {...data.data, quantity};
+
+			const obj = {
+				_id: data.data._id,
+				name: data.data.name,
+				price: data.data.price,
+				stock: data.data.Stock,
+				image: data.data.images[0].url,
+				quantity,
+			};
+			const item = {...obj, quantity};
 			const {cart} = state.getState();
 			const itemExist = cart.cartItems.find((el) => el._id === item._id);
 			if (itemExist) {
@@ -44,9 +53,8 @@ export const removeCart = createAsyncThunk(
 
 export const saveShipingInfo = createAsyncThunk(
 	"cart/saveShipingInfo",
-	async (data, getState) => {
+	async (data) => {
 		try {
-			localStorage.setItem("shippingInfo", JSON.stringify(data));
 			return data;
 		} catch (err) {
 			throw Error(`error al guardar la informacion ${err}`);

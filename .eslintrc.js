@@ -37,5 +37,6 @@ module.exports = {
 		"react/jsx-boolean-value": "off",
 		"no-unused-vars": "off",
 		"default-param-last": "off",
+		"no-unneeded-ternary": "off",
 	},
 };

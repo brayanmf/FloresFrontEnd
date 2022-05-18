@@ -5,7 +5,9 @@ const initialState = {
 	cartItems: localStorage.getItem("cardItems")
 		? JSON.parse(localStorage.getItem("cardItems"))
 		: [],
-	shippingInfo: {},
+	shippingInfo: localStorage.getItem("shippingInfo")
+		? JSON.parse(localStorage.getItem("shippingInfo"))
+		: {},
 };
 
 export const cardReducer = createSlice({
@@ -25,8 +27,9 @@ export const cardReducer = createSlice({
 			state.cartItems = action.payload;
 			localStorage.setItem("cardItems", JSON.stringify(action.payload));
 		});
-		builder.addCase(saveShipingInfo.rejected, (state, action) => {
+		builder.addCase(saveShipingInfo.fulfilled, (state, action) => {
 			state.shippingInfo = action.payload;
+			localStorage.setItem("shippingInfo", JSON.stringify(action.payload));
 		});
 	},
 });

@@ -22,6 +22,11 @@ import UpdatePassword from "./pages/updatePassword/UpdatePassword";
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
 import Cart from "./pages/cart/Cart";
+import Payment from "./pages/payment/Payment";
+import Shipping from "./pages/payment/component/shipping/Shipping";
+import OrderConfirm from "./pages/payment/component/orderConfirm/OrderConfirm";
+import Pay from "./pages/payment/component/pay/Pay";
+import OrderSuccess from "./pages/orderSuccess/OrderSuccess";
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -42,6 +47,7 @@ const App = () => {
 					<Route path="/product/:id" element={<ProductDetais />} />
 					<Route path="forgot/password" element={<ForgotPassword />} />
 					<Route path="/reset/password/:id" element={<ResetPassword />} />
+					<Route path="/cart" element={<Cart />} />
 					<Route
 						path="/profile"
 						element={<ProtectRoute component={Profile} />}
@@ -54,7 +60,13 @@ const App = () => {
 						path="/password/update"
 						element={<ProtectRoute component={UpdatePassword} />}
 					/>
-					<Route path="/cart" element={<Cart />} />
+					<Route path="/payment/" element={<Payment />}>
+						<Route path="shipping" element={<Shipping />} />
+						<Route path="orderConfirm" element={<OrderConfirm />} />
+
+						<Route path="pay" element={<Pay />} />
+					</Route>
+					<Route path="/success" element={<OrderSuccess />} />
 				</Route>
 
 				<Route path="/auth/" element={<Auth />}>

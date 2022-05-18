@@ -33,7 +33,7 @@ const Cart = () => {
 				</div>
 			) : (
 				<>
-					<div className="overflow-x-auto mt-32 ">
+					<div className="overflow-x-auto mt-20 ">
 						<table className="table w-full ">
 							<thead>
 								<tr>
@@ -50,19 +50,18 @@ const Cart = () => {
 					</div>
 					<div className="divider" />
 					<div className="flex justify-end my-5">
-						-
 						<div className="text-center p-5">
 							<h2 className="font-bold text-xl">Total </h2> <br />
 							<p>{`S/.${cartItems.reduce(
 								(acc, item) => acc + item.quantity * item.price,
 								0
 							)}`}</p>
-							<button
+							<Link
+								to="/auth/login?redirect=payment"
 								className="btn btn-active btn-secondary m-5"
-								type="button"
 							>
 								Comprar
-							</button>
+							</Link>
 						</div>
 					</div>
 				</>

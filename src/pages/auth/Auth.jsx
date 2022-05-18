@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Link, Outlet, useNavigate} from "react-router-dom";
+import {Link, Outlet, useNavigate, useSearchParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 const Login = () => {
@@ -11,12 +11,19 @@ const Login = () => {
 	};
 	const {isAuthenticated} = useSelector((state) => state.auth);
 	const navigate = useNavigate();
+	const [searchParams, setSearchParams] = useSearchParams();
+
+	const redirect = searchParams.get("redirect");
+	let url = "/profile";
+	if (redirect) {
+		url = `/${redirect}/shipping`;
+	}
 
 	useEffect(() => {
 		if (isAuthenticated) {
-			navigate("/profile");
+			navigate(url);
 		}
-	}, [isAuthenticated]);
+	}, [isAuthenticated, url]);
 	return (
 		<div className="h-screen  bg-base-200">
 			<div className="tabs items-center ">
