@@ -7,7 +7,7 @@ export const getProductDetail = createAsyncThunk(
 		try {
 			const {data} = await getProductIdAsync(id);
 
-			return data;
+			return data.data;
 		} catch (err) {
 			throw Error(err.response.data.message);
 		}

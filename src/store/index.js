@@ -6,6 +6,7 @@ import profileReducer from "./profileReducer/profileReducer.reducer";
 import forgotReducer from "./forgotReducer/forgotReducer.reducer";
 import cartReducer from "./cartReducer/cartReducer.reducer";
 import orderReducer from "./orderReducer/orderReducer.reducer";
+import reviewReducer from "./reviewReducer/reviewReducer.reducer";
 
 export const store = configureStore({
 	reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
 		forgot: forgotReducer,
 		cart: cartReducer,
 		order: orderReducer,
+		review: reviewReducer,
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({

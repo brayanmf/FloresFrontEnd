@@ -33,7 +33,7 @@ const ResetPassword = () => {
 			setBolError(true);
 			setTimeout(() => {
 				setBolError(false);
-				dispatch(clearErrorAction);
+				dispatch(clearErrorAction());
 			}, 2500);
 		}
 		if (messageReset) {

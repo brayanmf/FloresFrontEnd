@@ -17,6 +17,7 @@ const UpdatePassword = () => {
 		(state) => state.profile
 	);
 	const [bolError, setBolError] = useState(false);
+	const [bolSucc, setBolSucc] = useState(false);
 	const [dataPassword, setDataPassword] = useState({
 		oldPassword: "",
 		newPassword: "",
@@ -38,13 +39,18 @@ const UpdatePassword = () => {
 			setBolError(true);
 			setTimeout(() => {
 				setBolError(false);
-				dispatch(clearErrorAction);
+				dispatch(clearErrorAction());
 			}, 2500);
 		}
 		if (isUpdatePassword) {
-			dispatch(loadUser());
-			dispatch(passwordReset());
-			navigate("/auth/profile");
+			setBolSucc(true);
+			setTimeout(() => {
+				setBolError(false);
+
+				dispatch(passwordReset());
+				dispatch(loadUser());
+				navigate("/profile");
+			}, 2500);
 		}
 	}, [error, isUpdatePassword, dispatch]);
 
@@ -57,10 +63,17 @@ const UpdatePassword = () => {
 					message={error}
 				/>
 			)}
+			{bolSucc && (
+				<Alert
+					type="alert-success"
+					styleAlert="absolute  w-1/4 mt-20 top-0 right-0  "
+					message="contraseña actualizada"
+				/>
+			)}
 			<div className="card-body w-96 m-20  mx-auto shadow-2xl  ">
 				<h2 className="font-bold text-center p-5">Actualizar Contraseña</h2>
 				{loading ? (
-					<Loader />
+					<Loader styleLoader="absolute  inset-2/4" />
 				) : (
 					<form
 						encType="multipart/form-data"

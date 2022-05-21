@@ -10,7 +10,7 @@ export const getProductAsync = (data) => {
 		keyword = "",
 		currentPage = 1,
 		min = 0,
-		max = 2500,
+		max = 5000,
 		category = "Todos",
 		rating = 0,
 	} = data;

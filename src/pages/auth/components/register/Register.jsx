@@ -17,7 +17,9 @@ const Register = () => {
 	});
 	const {name, email, password} = user;
 	const [avatar, setAvatar] = useState();
-	const [avatarPreview, setAvatarPreview] = useState("/userProfile.png");
+	const [avatarPreview, setAvatarPreview] = useState(
+		"https://res.cloudinary.com/dx1ece9ck/image/upload/v1651166764/store/users/istockphoto-1130884625-612x612_cwvfdf.jpg"
+	);
 
 	const registerForm = (e) => {
 		e.preventDefault();
@@ -35,7 +37,7 @@ const Register = () => {
 			setBolErr(true);
 			setTimeout(() => {
 				setBolErr(false);
-				dispatch(clearErrorAction);
+				dispatch(clearErrorAction());
 			}, 2500);
 		}
 	}, [dispatch, error, loading]);

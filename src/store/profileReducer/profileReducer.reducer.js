@@ -28,7 +28,7 @@ export const profileReducer = createSlice({
 			})
 			.addCase(updateProfile.fulfilled, (state, action) => {
 				state.loading = false;
-				state.isUpdate = action.payload.sucess;
+				state.isUpdate = action.payload;
 			})
 			.addCase(updateProfile.rejected, (state, action) => {
 				state.loading = false;
@@ -40,7 +40,7 @@ export const profileReducer = createSlice({
 			})
 			.addCase(updatePassword.fulfilled, (state, action) => {
 				state.loading = false;
-				state.isUpdatePassword = action.payload.sucess;
+				state.isUpdatePassword = action.payload;
 			})
 			.addCase(updatePassword.rejected, (state, action) => {
 				state.loading = false;

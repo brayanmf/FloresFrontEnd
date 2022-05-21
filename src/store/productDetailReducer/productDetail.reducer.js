@@ -22,7 +22,7 @@ export const productDetailReducer = createSlice({
 			})
 			.addCase(getProductDetail.fulfilled, (state, action) => {
 				state.loading = false;
-				state.product = action.payload.data;
+				state.product = action.payload;
 			})
 			.addCase(getProductDetail.rejected, (state, action) => {
 				state.loading = false;

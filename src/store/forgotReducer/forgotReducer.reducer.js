@@ -12,6 +12,9 @@ export const forgotReducer = createSlice({
 		clearErrorAction: (state) => {
 			state.error = null;
 		},
+		clearMessage: (state) => {
+			state.messageReset = null;
+		},
 	},
 	extraReducers: (builder) => {
 		builder
@@ -20,7 +23,7 @@ export const forgotReducer = createSlice({
 			})
 			.addCase(forgotPassword.fulfilled, (state, action) => {
 				state.loading = false;
-				state.message = action.payload.message;
+				state.message = action.payload;
 			})
 			.addCase(forgotPassword.rejected, (state, action) => {
 				state.loading = false;
@@ -32,7 +35,7 @@ export const forgotReducer = createSlice({
 			})
 			.addCase(resetPassword.fulfilled, (state, action) => {
 				state.loading = false;
-				state.messageReset = action.payload.message;
+				state.messageReset = action.payload;
 			})
 			.addCase(resetPassword.rejected, (state, action) => {
 				state.loading = false;
@@ -40,5 +43,5 @@ export const forgotReducer = createSlice({
 			});
 	},
 });
-export const {clearErrorAction} = forgotReducer.actions;
+export const {clearErrorAction, clearMessage} = forgotReducer.actions;
 export default forgotReducer.reducer;

@@ -6,7 +6,7 @@ const Hero = () => {
 		<div
 			className="hero min-h-screen"
 			style={{
-				backgroundImage: `url(https://source.unsplash.com/random)`,
+				backgroundImage: `url(./heroImage/pickawood-gf8e6XvG_3E-unsplash.webp)`,
 				backgroundSize: "cover",
 				backgroundPosition: "center",
 			}}
