@@ -33,7 +33,7 @@ const Profile = ({user}) => {
 				</li>
 				{user.role === "admin" && (
 					<li>
-						<Link to="/dashboard">Panel</Link>
+						<Link to="/">Panel</Link>
 					</li>
 				)}
 				<li>

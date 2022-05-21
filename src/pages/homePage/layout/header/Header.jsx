@@ -24,7 +24,7 @@ const Header = () => {
 				{isAuthenticated ? (
 					<Profile user={user} />
 				) : (
-					<Link to="/auth/login" className="btn btn-sm btn-outline">
+					<Link to="/auth/login" className="ml-3 btn btn-sm btn-outline">
 						Iniciar Sesión
 					</Link>
 				)}

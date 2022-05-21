@@ -31,10 +31,10 @@ const Menu = () => {
 					<Link to="/products">Productos</Link>
 				</li>
 				<li>
-					<Link to="/contact">Contacto</Link>
+					<Link to="/">Contacto</Link>
 				</li>
 				<li>
-					<Link to="/about">Acerca de</Link>
+					<Link to="/">Acerca de</Link>
 				</li>
 			</ul>
 		</div>
