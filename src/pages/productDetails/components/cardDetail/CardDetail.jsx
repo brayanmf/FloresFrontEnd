@@ -1,15 +1,14 @@
 import React, {useState} from "react";
 import ReactStars from "react-rating-stars-component";
 import {useDispatch} from "react-redux";
-
-import "./CardDetail.css";
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 import {addCart} from "../../../../store/cartReducer/cartReducer.action";
 
 const CardDetail = ({product}) => {
 	const params = useParams();
 	const [quantity, setQuantity] = useState(1);
 	const dispatch = useDispatch();
+
 	const increaseQuantity = () => {
 		if (product.Stock <= quantity) return;
 		const aux = quantity + 1;
@@ -28,9 +27,8 @@ const CardDetail = ({product}) => {
 	const optionsStart = {
 		color: "rgba(8, 8, 8, 0.83)",
 		edit: false,
-		activeColor: "tomato",
 		size: window.innerWidth > 768 ? 20 : 15,
-		value: product.ratings,
+		value: product.rating,
 		isHalf: true,
 	};
 
@@ -73,6 +71,7 @@ const CardDetail = ({product}) => {
 						type="button"
 						className="btn btn-secondary ml-4"
 						onClick={handleAdddCart}
+						disabled={product.Stock < 1 ? true : false}
 					>
 						Agregar al Carrito
 					</button>
@@ -91,9 +90,9 @@ const CardDetail = ({product}) => {
 			<div className="cardDetail-description p-4  ">
 				<p className=" w-80 break-words ">{product.description}</p>
 			</div>
-			<button type="button" className="btn btn-active">
-				Enviar Reseña
-			</button>
+			<Link to="/cart" className="btn btn-active my-20">
+				Ir a carrito
+			</Link>
 		</div>
 	);
 };

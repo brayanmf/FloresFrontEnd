@@ -2,7 +2,10 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {forgotPassword} from "../../store/forgotReducer/forgotReducer.action";
-import {clearErrorAction} from "../../store/forgotReducer/forgotReducer.reducer";
+import {
+	clearErrorAction,
+	clearMessage,
+} from "../../store/forgotReducer/forgotReducer.reducer";
 import Alert from "../../components/alert/Alert";
 import Loader from "../../components/loader/Loader";
 
@@ -32,13 +35,14 @@ const ForgotPassword = () => {
 			setBolError(true);
 			setTimeout(() => {
 				setBolError(false);
-				dispatch(clearErrorAction);
+				dispatch(clearErrorAction());
 			}, 2500);
 		}
 		if (message) {
 			setBolMessage(true);
 			setTimeout(() => {
 				setBolMessage(false);
+				dispatch(clearMessage());
 				navigate("/");
 			}, 2500);
 		}

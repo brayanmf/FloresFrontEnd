@@ -52,11 +52,15 @@ const SliderCard = () => {
 				modules={[Autoplay, EffectCoverflow, Pagination]}
 				className="mySwiper2"
 			>
-				{products.map((el) => (
-					<SwiperSlide className="mySwiper2-card" key={el._id}>
-						<CardProduct product={el} />
-					</SwiperSlide>
-				))}
+				{products.map((el) =>
+					el.rating > 2 ? (
+						<SwiperSlide className="mySwiper2-card" key={el._id}>
+							<CardProduct product={el} />
+						</SwiperSlide>
+					) : (
+						""
+					)
+				)}
 			</Swiper>
 		</>
 	);

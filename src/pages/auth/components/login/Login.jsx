@@ -28,7 +28,7 @@ const Login = () => {
 			setBolErr(true);
 			setTimeout(() => {
 				setBolErr(false);
-				dispatch(clearErrorAction);
+				dispatch(clearErrorAction());
 			}, 2500);
 		}
 	}, [dispatch, error, loading]);
@@ -74,7 +74,7 @@ const Login = () => {
 						<label className="label">
 							<Link
 								to="/forgot/password"
-								className="label-text-alt link link-hover"
+								className="label-text-alt link link-hover mt-3"
 							>
 								Se te olvidó tu contraseña?
 							</Link>

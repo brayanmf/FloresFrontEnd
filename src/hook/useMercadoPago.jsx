@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";

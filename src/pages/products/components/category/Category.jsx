@@ -4,14 +4,14 @@ import React from "react";
 // "Todos",
 const categories = [
 	"Todos",
-	"Polos",
-	"Camisas",
-	"Jeans",
-	"Calzados",
-	"Sudaderas",
+	"polos",
+	"camisas",
+	"jeans",
+	"calzados",
+	"sudaderas",
 	"suéteres",
-	"Sombreros",
-	"Accesorios",
+	"sombreros",
+	"accesorios",
 ];
 
 const Category = ({setCategory}) => {

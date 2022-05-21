@@ -6,7 +6,7 @@ export const updateProfile = createAsyncThunk(
 	async (dataParams) => {
 		try {
 			const {data} = await updateAsync(dataParams);
-			return data;
+			return data.success;
 		} catch (err) {
 			const errorData = err.response.data
 				? err.response.data.message
@@ -21,7 +21,8 @@ export const updatePassword = createAsyncThunk(
 	async (dataParams) => {
 		try {
 			const {data} = await updatePasswordAsync(dataParams);
-			return data;
+
+			return data.success;
 		} catch (err) {
 			const errorData = err.response.data
 				? err.response.data.message

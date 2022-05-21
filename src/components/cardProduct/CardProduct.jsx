@@ -7,7 +7,7 @@ const CardProduct = ({product, classCard}) => {
 	const optionsStart = {
 		color: "rgba(8, 8, 8, 0.83)",
 		edit: false,
-		activeColor: "tomato",
+
 		size: window.innerWidth > 768 ? 20 : 15,
 		value: product.rating,
 		isHalf: true,

@@ -38,5 +38,6 @@ module.exports = {
 		"no-unused-vars": "off",
 		"default-param-last": "off",
 		"no-unneeded-ternary": "off",
+		"no-console ": "off",
 	},
 };

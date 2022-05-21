@@ -20,7 +20,7 @@ const OrderSuccess = () => {
 					/>
 				</svg>
 				<span className="my-5">Su pedido ha sido realizado con éxito</span>
-				<Link to="/" className="btn btn-primary ">
+				<Link to="/orders" className="btn btn-primary ">
 					Ver Ordenes
 				</Link>
 			</div>

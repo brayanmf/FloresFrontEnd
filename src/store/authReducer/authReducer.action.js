@@ -10,7 +10,7 @@ import {
 export const login = createAsyncThunk("auth/login", async (dataParams) => {
 	try {
 		const {data} = await postLoginAsync(dataParams);
-		return data;
+		return data.user;
 	} catch (err) {
 		const errorData = err.response.data
 			? err.response.data.message
@@ -25,7 +25,7 @@ export const register = createAsyncThunk(
 	async (dataParams) => {
 		try {
 			const {data} = await postRegisterAsync(dataParams);
-			return data;
+			return data.user;
 		} catch (err) {
 			const errorData = err.response.data
 				? err.response.data.message
@@ -51,7 +51,7 @@ export const loadUser = createAsyncThunk("user/loadUser", async () => {
 	try {
 		const {data} = await postLoadAsync();
 
-		return data;
+		return data.data;
 	} catch (err) {
 		const errorData = err.response.data
 			? err.response.data.message

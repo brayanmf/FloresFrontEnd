@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from "react";
 import MultiRangeSlider from "react-js-multi-range-sliders";
 

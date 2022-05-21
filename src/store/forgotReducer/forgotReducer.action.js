@@ -6,7 +6,7 @@ export const forgotPassword = createAsyncThunk(
 	async (dataParams) => {
 		try {
 			const {data} = await forgotAsync(dataParams);
-			return data;
+			return data.message;
 		} catch (err) {
 			const errorData = err.response.data
 				? err.response.data.message
@@ -22,7 +22,7 @@ export const resetPassword = createAsyncThunk(
 	async (dataParams) => {
 		try {
 			const {data} = await resetAsync(dataParams);
-			return data;
+			return data.message;
 		} catch (err) {
 			const errorData = err.response.data
 				? err.response.data.message

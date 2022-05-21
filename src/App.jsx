@@ -27,6 +27,8 @@ import Shipping from "./pages/payment/component/shipping/Shipping";
 import OrderConfirm from "./pages/payment/component/orderConfirm/OrderConfirm";
 import Pay from "./pages/payment/component/pay/Pay";
 import OrderSuccess from "./pages/orderSuccess/OrderSuccess";
+import MyOrders from "./pages/myOrders/MyOrders";
+import OrdersDetail from "./pages/ordersDetail/OrdersDetail";
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -66,7 +68,19 @@ const App = () => {
 
 						<Route path="pay" element={<Pay />} />
 					</Route>
-					<Route path="/success" element={<OrderSuccess />} />
+					<Route
+						path="/success"
+						element={<ProtectRoute component={OrderSuccess} />}
+					/>
+					<Route
+						path="/orders"
+						element={<ProtectRoute component={MyOrders} />}
+					/>
+
+					<Route
+						path="/order/detail/:id"
+						element={<ProtectRoute component={OrdersDetail} />}
+					/>
 				</Route>
 
 				<Route path="/auth/" element={<Auth />}>
