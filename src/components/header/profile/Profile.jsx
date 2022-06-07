@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {logout} from "../../../../../store/authReducer/authReducer.action";
+import {logout} from "../../../store/authReducer/authReducer.action";
 
 const Profile = ({user}) => {
 	const navigate = useNavigate();
@@ -33,7 +33,7 @@ const Profile = ({user}) => {
 				</li>
 				{user.role === "admin" && (
 					<li>
-						<Link to="/">Panel</Link>
+						<Link to="/admin/dashboard">Dashboard</Link>
 					</li>
 				)}
 				<li>

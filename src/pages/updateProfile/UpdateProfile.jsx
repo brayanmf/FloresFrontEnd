@@ -18,7 +18,7 @@ const UpdateProfile = () => {
 	const [name, setName] = useState(user.name);
 	const [email, setEmail] = useState(user.email);
 	const [avatar, setAvatar] = useState();
-	const [avatarPreview, setAvatarPreview] = useState("/userProfile");
+	const [avatarPreview, setAvatarPreview] = useState(user.avatar.url);
 	const [bolError, setBolError] = useState(false);
 
 	const updateSubmit = (e) => {
@@ -60,7 +60,7 @@ const UpdateProfile = () => {
 	}, [error, user, dispatch, isUpdate]);
 
 	return (
-		<div className="h-screen  ">
+		<div className="min-h-screen">
 			{bolError && (
 				<Alert
 					type="alert-error"
@@ -72,7 +72,7 @@ const UpdateProfile = () => {
 				<h2 className="font-bold text-center p-5">Actualizar Perfil</h2>
 
 				{loading ? (
-					<Loader />
+					<Loader styleLoader="absolute  inset-2/4" />
 				) : (
 					<form encType="multipart/form-data" onSubmit={updateSubmit}>
 						<div className="form-control">
