@@ -57,7 +57,7 @@ const UpdateProfile = () => {
 			navigate("/profile");
 			dispatch(profileReset());
 		}
-	}, [error, user, dispatch, isUpdate]);
+	}, [user, dispatch, isUpdate]);
 
 	return (
 		<div className="min-h-screen">

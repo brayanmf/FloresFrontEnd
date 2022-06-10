@@ -7,10 +7,10 @@ import "./Dashboard.css";
 const Dashboard = () => {
 	return (
 		<div className="dashboard">
-			<div className="dashboar-navbar ">
+			<div className="dashboar-navbar border-solid border-2 border-gray-700">
 				<Header isAdmin={true} />
 			</div>
-			<div className="dashboard-menu">
+			<div className="dashboard-menu border-solid border-r-4  border-gray-700 ">
 				<Sidebar />
 			</div>
 			<div className="dashboard-content">

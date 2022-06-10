@@ -7,7 +7,6 @@ import Profile from "./profile/Profile";
 import Search from "./search/Search";
 
 const Header = ({isAdmin}) => {
-	console.log(isAdmin);
 	const {isAuthenticated, user} = useSelector((state) => state.auth);
 	return (
 		<div className="navbar absolute top-0 ">
