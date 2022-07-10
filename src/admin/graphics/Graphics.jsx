@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {
 	CategoryScale,
 	LinearScale,
@@ -7,8 +7,10 @@ import {
 	PointElement,
 	ArcElement,
 } from "chart.js";
-import {Link} from "react-router-dom";
 import {Doughnut, Line} from "react-chartjs-2";
+import {Link} from "react-router-dom";
+import {useSelector, useDispatch} from "react-redux";
+import {getProducts} from "../../store/adminReducer/adminReducer.action";
 
 Chart.register(
 	CategoryScale,
@@ -19,12 +21,22 @@ Chart.register(
 );
 
 const Graphics = () => {
+	const {products} = useSelector((state) => state.admin);
+	const dispatch = useDispatch();
+	let constStock = 0;
+
+	products.forEach((items) => {
+		if (items.Stock === 0) {
+			constStock += 1;
+		}
+	});
 	const lineState = {
 		labels: ["Monto Inicial ", "Monto ganado"],
 		datasets: [
 			{
 				label: "MONTO TOTAL",
-				data: [0, 4000],
+				data: [2500, 4000],
+
 				borderColor: "rgb(255, 99, 132)",
 				backgroundColor: "rgba(255, 99, 132, 0.5)",
 				hoverBackgroundColor: "rgb(255,255,255)",
@@ -35,13 +47,15 @@ const Graphics = () => {
 		labels: ["Fuera de Stock ", "En stock"],
 		datasets: [
 			{
-				data: [2, 10],
-
 				backgroundColor: ["rgb(255,50,10)", "rgba(255, 99, 132, 0.5)"],
 				hoverBackgroundColor: ["rgb(255,25,180)", "rgb(255,255,255)"],
+				data: [constStock, products.length - constStock],
 			},
 		],
 	};
+	useEffect(() => {
+		dispatch(getProducts());
+	}, [dispatch]);
 	return (
 		<div className="text-center text-gray-300">
 			<h3 className="font-extrabold text-2xl p-5">Dashboard</h3>
@@ -58,7 +72,7 @@ const Graphics = () => {
 						className="rounded-full  bg-red-500  h-40 w-40 flex flex-col justify-center items-center"
 					>
 						<p className="text-xl font-bold">Product</p>
-						<p className="text-xl ">50</p>
+						<p className="text-xl ">{products?.length}</p>
 					</Link>
 					<Link
 						to="/admin/orders"
@@ -75,10 +89,10 @@ const Graphics = () => {
 						<p className="text-xl">60</p>
 					</Link>
 				</div>
-				<div className="lineChart">
+				<div className="w-4/5 mx-auto mt-8">
 					<Line data={lineState} />
 				</div>
-				<div className="dougChart">
+				<div className="w-3/5 mx-auto mt-8">
 					<Doughnut data={doughState} />
 				</div>
 			</div>

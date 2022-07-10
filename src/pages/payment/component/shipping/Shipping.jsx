@@ -103,13 +103,14 @@ const Shipping = () => {
 								value={country}
 								onChange={(e) => setCountry(e.target.value)}
 							>
-								<option value="">País</option>
-								{Country &&
-									Country.getAllCountries().map((item) => (
-										<option key={item.isoCode} value={item.isoCode}>
-											{item.name}
-										</option>
-									))}
+								<option value="" disabled>
+									País
+								</option>
+								{Country?.getAllCountries().map((item) => (
+									<option key={item.isoCode} value={item.isoCode}>
+										{item.name}
+									</option>
+								))}
 							</select>
 						</div>
 						{country && (

@@ -1,9 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getProducts} from "./adminReducer.action";
+import {getProducts, addProduct} from "./adminReducer.action";
 
 const initialState = {
 	error: null,
 	products: [],
+	product: {},
+	success: false,
 };
 
 export const adminReducer = createSlice({
@@ -12,6 +14,7 @@ export const adminReducer = createSlice({
 	reducers: {
 		clearErrorAction: (state) => {
 			state.error = null;
+			state.success = false;
 		},
 	},
 	extraReducers: (builder) => {
@@ -25,6 +28,20 @@ export const adminReducer = createSlice({
 			})
 			.addCase(getProducts.rejected, (state, action) => {
 				state.loading = false;
+				state.error = action.error.message;
+			});
+		builder
+			.addCase(addProduct.pending, (state) => {
+				state.loading = true;
+			})
+			.addCase(addProduct.fulfilled, (state, action) => {
+				state.loading = false;
+				state.success = true;
+				state.product = action.payload;
+			})
+			.addCase(addProduct.rejected, (state, action) => {
+				state.loading = false;
+				state.success = false;
 				state.error = action.error.message;
 			});
 	},

@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Sidebar = () => {
 	return (
@@ -59,7 +59,7 @@ const Sidebar = () => {
 						</NavLink>
 					</li>
 					<li>
-						<NavLink to="/admin/product/create">
+						<NavLink to="/admin/product/add">
 							<svg
 								className="h-5 w-5"
 								xmlns="http://www.w3.org/2000/svg"

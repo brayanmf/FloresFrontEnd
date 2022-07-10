@@ -1,5 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {getProductsAsync} from "../../api/admin";
+import {getProductsAsync, addProductAsync} from "../../api/admin";
 
 export const getProducts = createAsyncThunk(
 	"admin/getProducts",
@@ -13,6 +13,21 @@ export const getProducts = createAsyncThunk(
 				? err.response.data.message
 				: "Something went wrong";
 
+			throw Error(errorData);
+		}
+	}
+);
+
+export const addProduct = createAsyncThunk(
+	"admin/addProduct",
+	async (dataParams) => {
+		try {
+			const {data} = await addProductAsync(dataParams);
+			return data.data;
+		} catch (err) {
+			const errorData = err.response.data
+				? err.response.data.message
+				: "Something went wrong";
 			throw Error(errorData);
 		}
 	}

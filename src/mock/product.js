@@ -8,4 +8,15 @@ const product = {
 	rating: 2.5,
 };
 
-export default product;
+const categories = [
+	"Todos",
+	"polos",
+	"camisas",
+	"jeans",
+	"calzados",
+	"sudaderas",
+	"suéteres",
+	"sombreros",
+	"accesorios",
+];
+export {categories, product};

@@ -32,7 +32,7 @@ const columns = [
 		Cell: (row) => {
 			const {value} = row;
 			return (
-				<div>
+				<div className="flex justify-evenly">
 					<Link
 						to={`/admin/product/${value}`}
 						className="link link-primary text-xl font-bold"
@@ -86,7 +86,7 @@ const columns = [
 							x="0px"
 							y="0px"
 							viewBox="0 0 475.628 475.628"
-							className="w-5 h-5"
+							className="w-5 h-5 "
 							xmlSpace="preserve"
 						>
 							<g>
@@ -157,7 +157,7 @@ const ProductAll = () => {
 				/>
 			)}
 
-			<h2>Todos los Productosss</h2>
+			<h2>Todos los Productos</h2>
 			{loading ? (
 				<Loader styleLoader="absolute  inset-2/4" />
 			) : (
