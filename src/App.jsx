@@ -29,6 +29,10 @@ import Pay from "./pages/payment/component/pay/Pay";
 import OrderSuccess from "./pages/orderSuccess/OrderSuccess";
 import MyOrders from "./pages/myOrders/MyOrders";
 import OrdersDetail from "./pages/ordersDetail/OrdersDetail";
+import Dashboard from "./admin/dashboard/Dashboard";
+import ProductAll from "./admin/productAll/ProductAll";
+import Graphics from "./admin/graphics/Graphics";
+import NewProduct from "./admin/newProduct/NewProduct";
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -81,6 +85,14 @@ const App = () => {
 						path="/order/detail/:id"
 						element={<ProtectRoute component={OrdersDetail} />}
 					/>
+				</Route>
+				<Route
+					path="/admin/"
+					element={<ProtectRoute component={Dashboard} />}
+				>
+					<Route path="dashboard" element={<Graphics />} />
+					<Route path="product/all" element={<ProductAll />} />
+					<Route path="product/add" element={<NewProduct />} />
 				</Route>
 
 				<Route path="/auth/" element={<Auth />}>

@@ -55,7 +55,7 @@ const UpdatePassword = () => {
 	}, [error, isUpdatePassword, dispatch]);
 
 	return (
-		<div className="h-screen  ">
+		<div className="min-h-screen">
 			{bolError && (
 				<Alert
 					type="alert-error"

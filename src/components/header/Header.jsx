@@ -6,7 +6,7 @@ import Cart from "./cart/Cart";
 import Profile from "./profile/Profile";
 import Search from "./search/Search";
 
-const Header = () => {
+const Header = ({isAdmin}) => {
 	const {isAuthenticated, user} = useSelector((state) => state.auth);
 	return (
 		<div className="navbar absolute top-0 ">
@@ -18,8 +18,12 @@ const Header = () => {
 			</div>
 
 			<div className="navbar-end">
-				<Search />
-				<Cart />
+				{!isAdmin && (
+					<>
+						<Search />
+						<Cart />
+					</>
+				)}
 
 				{isAuthenticated ? (
 					<Profile user={user} />

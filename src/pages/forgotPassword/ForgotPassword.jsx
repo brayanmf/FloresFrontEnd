@@ -46,7 +46,7 @@ const ForgotPassword = () => {
 				navigate("/");
 			}, 2500);
 		}
-	}, [error, dispatch, message]);
+	}, [dispatch, message]);
 	return (
 		<div className="h-screen ">
 			{bolError && (

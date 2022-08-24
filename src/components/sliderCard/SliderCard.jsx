@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import "./SliderCard.css";
 import {Autoplay, EffectCoverflow, Pagination} from "swiper";
 import {getProducts} from "../../store/productReducer/product.actions";
+import {clearErrorAction} from "../../store/productReducer/product.reducer";
 import CardProduct from "../cardProduct/CardProduct";
 import Alert from "../alert/Alert";
 import Loader from "../loader/Loader";
@@ -21,7 +22,7 @@ const SliderCard = () => {
 			setBolErr(true);
 			setTimeout(() => {
 				setBolErr(false);
-			}, 1500);
+			}, 2500);
 		}
 		dispatch(getProducts({}));
 	}, [dispatch, error, setBolErr]);
