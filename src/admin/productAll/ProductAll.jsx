@@ -2,7 +2,10 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
-import {getProducts} from "../../store/adminReducer/adminReducer.action";
+import {
+	getProducts,
+	deleteProduct,
+} from "../../store/adminReducer/adminReducer.action";
 import {clearErrorAction} from "../../store/adminReducer/adminReducer.reducer";
 import Table from "../../components/table/Table";
 import Loader from "../../components/loader/Loader";
@@ -31,12 +34,16 @@ const columns = [
 		accessor: "acciones",
 		Cell: (row) => {
 			const {value} = row;
+			const dispatch = useDispatch();
+			const handleDelete = () => {
+				Promise.resolve(dispatch(deleteProduct({value}))).then(() => {
+					dispatch(getProducts());
+				});
+			};
+
 			return (
 				<div className="flex justify-evenly">
-					<Link
-						to={`/admin/product/${value}`}
-						className="link link-primary text-xl font-bold"
-					>
+					<Link to={`/admin/product/${value}`}>
 						<svg
 							version="1.1"
 							id="Capa_1"
@@ -77,7 +84,7 @@ const columns = [
 							<g />
 						</svg>
 					</Link>
-					<button type="button">
+					<button type="button" onClick={handleDelete}>
 						<svg
 							version="1.1"
 							id="Layer_1"
@@ -86,8 +93,9 @@ const columns = [
 							x="0px"
 							y="0px"
 							viewBox="0 0 475.628 475.628"
-							className="w-5 h-5 "
+							className="w-5 h-5   "
 							xmlSpace="preserve"
+							fill="#b70000"
 						>
 							<g>
 								<path
@@ -121,11 +129,15 @@ const columns = [
 	},
 ];
 const ProductAll = () => {
-	const {error, loading, products} = useSelector((state) => state.admin);
+	const {error, success, loading, products} = useSelector(
+		(state) => state.admin
+	);
 	const dispatch = useDispatch();
 	const [bolError, setBolError] = useState(false);
+	const [bolError1, setBolError1] = useState(false);
 
 	useEffect(() => {
+		dispatch(getProducts());
 		if (error) {
 			setBolError(true);
 			setTimeout(() => {
@@ -133,7 +145,6 @@ const ProductAll = () => {
 				dispatch(clearErrorAction());
 			}, 2500);
 		}
-		dispatch(getProducts());
 	}, [dispatch, clearErrorAction]);
 	const data = [];
 

@@ -37,14 +37,6 @@ const Products = () => {
 	};
 
 	useEffect(() => {
-		if (error) {
-			setBolError(true);
-			setTimeout(() => {
-				setBolError(false);
-				dispatch(clearErrorAction());
-			}, 2500);
-		}
-
 		dispatch(
 			getProducts({
 				keyword,
@@ -55,6 +47,13 @@ const Products = () => {
 				rating,
 			})
 		);
+		if (error) {
+			setBolError(true);
+			setTimeout(() => {
+				setBolError(false);
+				dispatch(clearErrorAction());
+			}, 2500);
+		}
 	}, [
 		dispatch,
 		keyword,

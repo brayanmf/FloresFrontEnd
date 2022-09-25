@@ -1,5 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getProducts, addProduct} from "./adminReducer.action";
+import {
+	getProducts,
+	addProduct,
+	deleteProduct,
+} from "./adminReducer.action";
 
 const initialState = {
 	error: null,
@@ -40,6 +44,18 @@ export const adminReducer = createSlice({
 				state.product = action.payload;
 			})
 			.addCase(addProduct.rejected, (state, action) => {
+				state.loading = false;
+				state.success = false;
+				state.error = action.error.message;
+			});
+		builder
+			.addCase(deleteProduct.pending, (state) => {
+				state.loading = true;
+			})
+			.addCase(deleteProduct.fulfilled, (state) => {
+				state.loading = true;
+			})
+			.addCase(deleteProduct.rejected, (state, action) => {
 				state.loading = false;
 				state.success = false;
 				state.error = action.error.message;
