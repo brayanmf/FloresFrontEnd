@@ -14,3 +14,8 @@ export const addProductAsync = (data) => {
 
 	return api.post(`${url}/api/v1/admin/product/new`, data, config);
 };
+
+export const deleteProductAsync = (data) => {
+	const id = data.value;
+	return api.delete(`${url}/api/v1/admin/product/${id}`);
+};

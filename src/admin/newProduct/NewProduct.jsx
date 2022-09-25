@@ -61,9 +61,7 @@ const NewProduct = () => {
 			}, 2500);
 		}
 		if (success) {
-			setBolErr(true);
 			setTimeout(() => {
-				setBolErr(false);
 				dispatch(clearErrorAction());
 				navigate("/admin/product/all");
 			}, 2500);
@@ -173,6 +171,7 @@ const NewProduct = () => {
 						className="input input-bordered mt-1"
 						onChange={createProductImagesChange}
 						multiple={true}
+						required
 					/>
 				</div>
 				<div className="form-control mt-6">

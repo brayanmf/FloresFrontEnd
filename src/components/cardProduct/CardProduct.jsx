@@ -19,23 +19,23 @@ const CardProduct = ({product, classCard}) => {
 			<figure className="h-3/5 ">
 				<img
 					className="object-fill h-full w-full"
-					src={product.images[0].url}
-					alt={product.name}
+					src={product?.images[0]?.url}
+					alt={product?.name}
 				/>
 			</figure>
 			<div className="card-body ">
 				<h2 className="card-title">
-					{product.name}
+					{product?.name}
 					<div className="badge badge-secondary">Destacado</div>
 				</h2>
-				<p>s/{product.price}</p>
+				<p>s/{product?.price}</p>
 				<div>
 					<ReactStars {...optionsStart} />
-					<span>{product.numOfReviews} Reseñas</span>
+					<span>{product?.numOfReviews} Reseñas</span>
 				</div>
 				<div className="card-actions justify-end ">
 					<Link
-						to={`/product/${product._id}`}
+						to={`/product/${product?._id}`}
 						className="btn btn-primary btn-sm"
 					>
 						Comprar
