@@ -18,7 +18,7 @@ const Register = () => {
 	const {name, email, password} = user;
 	const [avatar, setAvatar] = useState();
 	const [avatarPreview, setAvatarPreview] = useState(
-		"https://res.cloudinary.com/dx1ece9ck/image/upload/v1651166764/store/users/istockphoto-1130884625-612x612_cwvfdf.jpg"
+		"https://res.cloudinary.com/dx1ece9ck/image/upload/v1669589961/store/personIco_pgvfyy.png"
 	);
 
 	const registerForm = (e) => {

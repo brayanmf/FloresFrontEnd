@@ -16,9 +16,9 @@ const CardProduct = ({product, classCard}) => {
 		<div
 			className={`card card-normal h-full  bg-base-100 shadow-xl ${classCard}`}
 		>
-			<figure className="h-3/5 ">
+			<figure className="h-3/5 m-auto w-5/6">
 				<img
-					className="object-fill h-full w-full"
+					className="object-fill h-full w-full "
 					src={product?.images[0]?.url}
 					alt={product?.name}
 				/>

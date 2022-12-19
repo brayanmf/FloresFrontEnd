@@ -33,6 +33,7 @@ import Dashboard from "./admin/dashboard/Dashboard";
 import ProductAll from "./admin/productAll/ProductAll";
 import Graphics from "./admin/graphics/Graphics";
 import NewProduct from "./admin/newProduct/NewProduct";
+import EditProduct from "./admin/editProduct/EditProduct";
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -93,6 +94,7 @@ const App = () => {
 					<Route path="dashboard" element={<Graphics />} />
 					<Route path="product/all" element={<ProductAll />} />
 					<Route path="product/add" element={<NewProduct />} />
+					<Route path="product/:id" element={<EditProduct />} />
 				</Route>
 
 				<Route path="/auth/" element={<Auth />}>

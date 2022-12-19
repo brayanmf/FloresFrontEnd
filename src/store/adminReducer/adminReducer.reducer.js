@@ -3,6 +3,7 @@ import {
 	getProducts,
 	addProduct,
 	deleteProduct,
+	ProductDetails,
 } from "./adminReducer.action";
 
 const initialState = {
@@ -41,7 +42,7 @@ export const adminReducer = createSlice({
 			.addCase(addProduct.fulfilled, (state, action) => {
 				state.loading = false;
 				state.success = true;
-				state.product = action.payload;
+				// state.product = action.payload;
 			})
 			.addCase(addProduct.rejected, (state, action) => {
 				state.loading = false;
@@ -56,6 +57,19 @@ export const adminReducer = createSlice({
 				state.loading = true;
 			})
 			.addCase(deleteProduct.rejected, (state, action) => {
+				state.loading = false;
+				state.success = false;
+				state.error = action.error.message;
+			});
+		builder
+			.addCase(ProductDetails.pending, (state) => {
+				state.loading = true;
+			})
+			.addCase(ProductDetails.fulfilled, (state, action) => {
+				state.loading = false;
+				state.product = action.payload;
+			})
+			.addCase(ProductDetails.rejected, (state, action) => {
 				state.loading = false;
 				state.success = false;
 				state.error = action.error.message;

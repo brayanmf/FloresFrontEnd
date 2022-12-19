@@ -3,6 +3,7 @@ import {
 	getProductsAsync,
 	addProductAsync,
 	deleteProductAsync,
+	ProductDetailsAsync,
 } from "../../api/admin";
 
 export const getProducts = createAsyncThunk(
@@ -42,6 +43,21 @@ export const deleteProduct = createAsyncThunk(
 	async (dataParams) => {
 		try {
 			const {data} = await deleteProductAsync(dataParams);
+			return data.data;
+		} catch (err) {
+			const errorData = err.response.data
+				? err.response.data.message
+				: "Something went wrong";
+			throw Error(errorData);
+		}
+	}
+);
+
+export const ProductDetails = createAsyncThunk(
+	"admin/ProductDetails",
+	async (dataParams) => {
+		try {
+			const {data} = await ProductDetailsAsync(dataParams);
 			return data.data;
 		} catch (err) {
 			const errorData = err.response.data

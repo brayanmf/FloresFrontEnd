@@ -19,3 +19,7 @@ export const deleteProductAsync = (data) => {
 	const id = data.value;
 	return api.delete(`${url}/api/v1/admin/product/${id}`);
 };
+
+export const ProductDetailsAsync = ({id}) => {
+	return api.get(`${url}/api/v1/product/${id}`); // error in rute name
+};
